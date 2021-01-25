@@ -1,0 +1,62 @@
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 0;
+}
+
+* {
+    box-sizing: border-box;
+    transition: all 200ms ease;
+}
+
+.dashboard {
+    display: grid;
+    grid-template-areas: 
+        "header header"
+        "leftnav content"
+        "footer footer";
+    grid-template-columns: minmax(200px, 350px) 3fr;
+    position: relative;
+}
+
+header {
+    grid-area: header;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+}
+
+header h1.logo-title {
+    margin: 0;
+    padding: 10px;
+    color: lightcoral;
+
+}
+
+.main-nav li {
+    display: inline-block;
+    padding: 5px;
+    margin: auto 10px;
+    background-color: #eee;
+    cursor: pointer;
+}
+
+.main-nav li:hover, .main-nav li:active {
+    background-color: lightcoral;
+    color: white;
+}
+
+footer {
+    grid-area: footer;
+}
+
+nav.left-nav {
+    grid-area: leftnav;
+}
+
+main {
+    grid-area: content;
+}
