@@ -1,11 +1,20 @@
+
+
 body {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    --base-font: 'Fira Sans', sans-serif;
+    --headings-font: 'Staatliches', cursive;
+
+    font-family: var(--base-font);
     margin: 0;
 }
 
 * {
     box-sizing: border-box;
     transition: all 200ms ease;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--headings-font);
 }
 
 .dashboard {
@@ -27,6 +36,8 @@ header {
     background: white;
     display: flex;
     justify-content: space-between;
+    border-bottom: 2px solid lightpink;
+    box-shadow: 0 5px 10px lightsalmon;
 }
 
 header h1.logo-title {
@@ -55,8 +66,25 @@ footer {
 
 nav.left-nav {
     grid-area: leftnav;
+    margin-left: 10px;
 }
 
 main {
     grid-area: content;
+    max-width: 800px;
+}
+
+footer {
+    padding: 10px;
+    border-top: 1px solid lightpink;
+}
+
+nav.footer ul {
+    padding: 0;
+}
+
+nav.footer li {
+    display: inline-block;
+    border-bottom: 2px solid lightsalmon;
+    padding: 5px;
 }
