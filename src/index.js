@@ -1,14 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { IdentityContextProvider } from "react-netlify-identity";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <IdentityContextProvider url="https://fervent-tereshkova-4b0b88.netlify.app">
+      <App />
+    </IdentityContextProvider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function

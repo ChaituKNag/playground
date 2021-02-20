@@ -1,7 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+
+import { useIdentityContext } from "react-netlify-identity";
 
 function App() {
+  const identity = useIdentityContext();
+  const handleLogin = () => {
+    identity.loginProvider("github");
+  };
+  const handleLogout = () => {
+    identity.logoutUser();
+  };
   return (
     <div className="App">
       <header className="App-header">
@@ -17,6 +26,14 @@ function App() {
         >
           Learn React
         </a>
+        {!identity.isLoggedIn ? (
+          <button onClick={handleLogin}>login</button>
+        ) : (
+          <button onClick={handleLogout}>logout</button>
+        )}
+        {identity.isLoggedIn
+          ? "I am logged in dude"
+          : "Nope I am not logged in"}
       </header>
     </div>
   );
