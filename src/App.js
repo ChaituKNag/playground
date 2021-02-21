@@ -1,39 +1,24 @@
-import logo from "./logo.svg";
 import "./App.css";
-
-import { useIdentityContext } from "react-netlify-identity";
+import { useIdentity } from "./identity";
 
 function App() {
-  const identity = useIdentityContext();
+  const { login, user, logout, loggedIn } = useIdentity();
   const handleLogin = () => {
-    identity.loginProvider("github");
+    login();
   };
   const handleLogout = () => {
-    identity.logoutUser();
+    logout();
   };
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        {!identity.isLoggedIn ? (
-          <button onClick={handleLogin}>login</button>
-        ) : (
+        <p>Welcome {user?.user_metadata?.full_name || "there"}</p>
+
+        {loggedIn() ? (
           <button onClick={handleLogout}>logout</button>
+        ) : (
+          <button onClick={handleLogin}>login</button>
         )}
-        {identity.isLoggedIn
-          ? "I am logged in dude"
-          : "Nope I am not logged in"}
       </header>
     </div>
   );

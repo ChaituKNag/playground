@@ -3,13 +3,13 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { IdentityContextProvider } from "react-netlify-identity";
+import { IdentityProvider } from "./identity";
 
 ReactDOM.render(
   <React.StrictMode>
-    <IdentityContextProvider url="https://fervent-tereshkova-4b0b88.netlify.app">
+    <IdentityProvider>
       <App />
-    </IdentityContextProvider>
+    </IdentityProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
