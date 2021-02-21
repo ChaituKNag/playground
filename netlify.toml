@@ -1,6 +1,5 @@
 # example netlify.toml
 [build]
-  command = "yarn build"
   functions = "functions"
   publish = "public"
   branch = "netlify/gatsby-contact-form"
