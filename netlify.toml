@@ -3,6 +3,7 @@
   command = "yarn build"
   functions = "functions"
   publish = "public"
+  branch = "netlify/gatsby-contact-form"
 
   ## Uncomment to use this redirect for Single Page Applications like create-react-app.
   ## Not needed for static site generators.
